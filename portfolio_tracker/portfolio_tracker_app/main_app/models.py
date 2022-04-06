@@ -21,5 +21,5 @@ class Crypto(models.Model):
 class Portfolio(models.Model):
     stocks = models.ManyToManyField(Stock)
     crypto = models.ManyToManyField(Crypto)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
 

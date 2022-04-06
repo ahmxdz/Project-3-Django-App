@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Your Portfolio</h1>
+<hr/>
+<p>$0 - Status: Broke boi</p>
+
+{% for portfolio in portfolios %}
+  <a href="{% url 'detail' portfolio.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ Portfolio.stocks}}</span>
+            <p>Crypto: {{ Portfolio.crypto }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
