@@ -10,6 +10,9 @@ class Stock(models.Model):
     purchase_price = models.DecimalField(max_digits=10, decimal_places=2)
     purchase_date = models.DateField('Purchase Date')
     num_of_units = models.IntegerField()
+
+    def get_absolute_url(self):
+        return reverse('index', kwargs={'stock_id': self.id})
     
 class Crypto(models.Model):
     name = models.CharField(max_length=100)
