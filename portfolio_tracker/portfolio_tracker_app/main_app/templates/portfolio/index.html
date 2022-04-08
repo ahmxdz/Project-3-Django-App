@@ -3,27 +3,16 @@
 
 <h1>Your Portfolio</h1>
 <hr/>
-
 {% for s in stocks %}
-
-  <p>Stock: {{s.name}}</p>
-  <p>Ticker: {{s.ticker}}</p>
-  <p>Purchase Price: {{s.purchase_price}}</p>
-  <p>Purchase Date: {{s.purchase_date}}</p>
-  <p># of Units: {{s.num_of_units}}</p>
-  <div class="card-action">
-    <p> add details button here </p>
-  </div>
-{% endfor %}
-
-
-{% for portfolio in portfolios %}
-  <a href="{% url 'detail' portfolio.id %}">
+  <a href="{% url 'detail' s.id %}">
     <div class="card">
         <div class="card-content">
-            
-            <span class="card-title">{{ Portfolio.stocks}}</span>
-            <p>Crypto: {{ Portfolio.crypto }}</p>
+            <span class="card-title">{{ s.name }}</span>
+            <p>Ticker: {{s.ticker}}</p>
+            <p>Purchase Price: {{s.purchase_price}}</p>
+            <p>Purchase Date: {{s.purchase_date}}</p>
+            <p># of Units: {{s.num_of_units}}</p>
+            <p>Market Value: </p>
         </div>
     </div>
   </a>

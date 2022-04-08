@@ -29,7 +29,6 @@ class AddStock(CreateView):
     return super().form_valid(form)
   success_url = '/portfolio/'
   
-
 class StockUpdate(UpdateView):
   model = Stock
   fields = '__all__'
@@ -37,7 +36,7 @@ class StockUpdate(UpdateView):
 class StockDelete(DeleteView):
   model = Stock
   success_url = '/portfolio/'
-
+  
 def about(request):
   return render(request, 'about.html')
 
@@ -47,3 +46,11 @@ def index(request):
 
 def add_to_portfolio(request):
   return render(request, 'portfolio/addStocks.html')
+
+def portfolio_detail(request, stock_id):
+  # update for portfolio model once it gets going
+  stock = Stock.objects.get(id=stock_id)
+  return render(request, 'portfolio/detail.html', {
+    # Pass the cat and feeding_form as context
+    'stock': stock
+  })
