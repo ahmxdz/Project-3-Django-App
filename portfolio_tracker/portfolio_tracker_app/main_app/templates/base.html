@@ -22,7 +22,8 @@
                         <!-- changes below -->
                         <li><a href="{% url 'about' %}">About</a></li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'addStocks' %}">Add Stocks/Crypto</a></li>
+                        <li><a href="{% url 'add_stocks' %}">Add Stocks</a></li>
+                        <li><a href="{% url 'add_crypto' %}">Add Crypto</a></li>
                         <li><a href="{% url 'index' %}">Your Portfolio</a></li>
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}

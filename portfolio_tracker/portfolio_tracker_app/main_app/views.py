@@ -34,6 +34,28 @@ class StockDelete(LoginRequiredMixin, DeleteView):
   model = Stock
   success_url = '/portfolio/'
 
+class AddCrypto(LoginRequiredMixin, CreateView):
+  model = Crypto
+  fields = ['name', 'ticker', 'purchase_price', 'purchase_date', 'num_of_units']
+  # This inherited method is called when a
+  # valid stock form is being submitted
+
+  def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+    form.instance.user = self.request.user  # form.instance is the stock
+    # Let the CreateView do its job as usual
+    
+    return super().form_valid(form)
+  success_url = '/portfolio/'
+
+class CryptoUpdate(LoginRequiredMixin, UpdateView):
+  model = Crypto
+  fields = ['name', 'ticker', 'purchase_price', 'purchase_date', 'num_of_units']
+
+class CryptoDelete(LoginRequiredMixin, DeleteView):
+  model = Crypto
+  success_url = '/portfolio/'
+
 def home(request):
   return render(request, 'home.html')
   
@@ -43,19 +65,29 @@ def about(request):
 @login_required
 def index(request):
   stocks = Stock.objects.filter(user = request.user)
-  return render(request, 'portfolio/index.html', {'stocks': stocks})
+  crypto = Crypto.objects.filter(user = request.user)
+  return render(request, 'portfolio/index.html', {'stocks': stocks, 'crypto': crypto})
 
 @login_required
 def add_to_portfolio(request):
   return render(request, 'portfolio/addStocks.html')
 
 @login_required
-def portfolio_detail(request, stock_id):
+def stock_detail(request, stock_id):
   # update for portfolio model once it gets going
   stock = Stock.objects.get(id=stock_id)
 
-  return render(request, 'portfolio/detail.html', {
-    'stock': stock, 'book_value': book_value,
+  return render(request, 'portfolio/stock_detail.html', {
+    'stock': stock,
+  })
+
+@login_required
+def crypto_detail(request, crypto_id):
+  # update for portfolio model once it gets going
+  crypto = Crypto.objects.get(id=crypto_id)
+
+  return render(request, 'portfolio/crypto_detail.html', {
+    'crypto': crypto,
   })
 
 def signup(request):

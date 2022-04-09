@@ -26,10 +26,19 @@ class Crypto(models.Model):
     ticker = models.CharField(max_length=10)
     purchase_price = models.DecimalField(max_digits=10, decimal_places=2)
     purchase_date = models.DateField('Purchase Date')
-    num_of_units = models.DecimalField(max_digits=10, decimal_places=10)
+    num_of_units = models.DecimalField(max_digits=14, decimal_places=10)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+
+    @property # allows book value to be called similar to other model variables
+    def book_value(self):
+        return self.purchase_price * self.num_of_units
+        # add repr to display as 2 digits ? 
+    
+    def get_absolute_url(self):
+        return reverse('index', kwargs={'crypto_id': self.id})
     
 class Portfolio(models.Model):
     stocks = models.ManyToManyField(Stock)
     crypto = models.ManyToManyField(Crypto)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE, blank=true, null=True))
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 

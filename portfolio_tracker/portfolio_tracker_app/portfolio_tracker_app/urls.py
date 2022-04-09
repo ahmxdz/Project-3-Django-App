@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+# next 2 added for CSS static files
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('main_app.urls')),
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
