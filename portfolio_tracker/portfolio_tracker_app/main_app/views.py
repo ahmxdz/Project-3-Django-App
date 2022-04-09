@@ -14,10 +14,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 #LoginRequiredMixin -- add this as a parameter for add, update, delete views once user signup is ready 
 
-class AddStock(CreateView):
+
+class AddStock(LoginRequiredMixin, CreateView):
   model = Stock
-  fields = '__all__'
-  # fields = ['name', 'ticker', 'purchase_price', 'purchase_date', 'num_of_units']
+  fields = ['name', 'ticker', 'purchase_price', 'purchase_date', 'num_of_units']
   # This inherited method is called when a
   # valid cat form is being submitted
 
@@ -29,24 +29,29 @@ class AddStock(CreateView):
     return super().form_valid(form)
   success_url = '/portfolio/'
   
-class StockUpdate(UpdateView):
+
+class StockUpdate(LoginRequiredMixin, UpdateView):
   model = Stock
   fields = '__all__'
 
-class StockDelete(DeleteView):
+
+class StockDelete(LoginRequiredMixin, DeleteView):
   model = Stock
   success_url = '/portfolio/'
   
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 def index(request):
-  stocks = Stock.objects.all()
+  stocks = Stock.objects.filter(user = request.user)
   return render(request, 'portfolio/index.html', {'stocks': stocks})
 
+@login_required
 def add_to_portfolio(request):
   return render(request, 'portfolio/addStocks.html')
 
+@login_required
 def portfolio_detail(request, stock_id):
   # update for portfolio model once it gets going
   stock = Stock.objects.get(id=stock_id)
@@ -54,3 +59,23 @@ def portfolio_detail(request, stock_id):
     # Pass the cat and feeding_form as context
     'stock': stock
   })
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in via code
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
+

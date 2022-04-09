@@ -10,6 +10,7 @@ class Stock(models.Model):
     purchase_price = models.DecimalField(max_digits=10, decimal_places=2)
     purchase_date = models.DateField('Purchase Date')
     num_of_units = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('index', kwargs={'stock_id': self.id})
@@ -24,5 +25,5 @@ class Crypto(models.Model):
 class Portfolio(models.Model):
     stocks = models.ManyToManyField(Stock)
     crypto = models.ManyToManyField(Crypto)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE, blank=true, null=True))
 
