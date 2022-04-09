@@ -32,7 +32,7 @@ class AddStock(LoginRequiredMixin, CreateView):
 
 class StockUpdate(LoginRequiredMixin, UpdateView):
   model = Stock
-  fields = '__all__'
+  fields = ['name', 'ticker', 'purchase_price', 'purchase_date', 'num_of_units']
 
 
 class StockDelete(LoginRequiredMixin, DeleteView):
