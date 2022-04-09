@@ -12,8 +12,14 @@ class Stock(models.Model):
     num_of_units = models.IntegerField('# of Units')
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 
+    # alternatively to do it directly in the template: https://stackoverflow.com/questions/18350630/multiplication-in-django-template-without-using-manually-created-template-tag
+    @property # allows book value to be called similar to other model variables
+    def book_value(self):
+        return self.purchase_price * self.num_of_units
+    
     def get_absolute_url(self):
         return reverse('index', kwargs={'stock_id': self.id})
+
     
 class Crypto(models.Model):
     name = models.CharField(max_length=100)
