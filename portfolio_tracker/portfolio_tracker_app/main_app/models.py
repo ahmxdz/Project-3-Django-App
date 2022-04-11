@@ -2,7 +2,11 @@ from django.db import models
 from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
-import requests, json, decimal
+import requests, json, decimal, environ
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Create your models here.
 class Stock(models.Model):
@@ -20,7 +24,7 @@ class Stock(models.Model):
 
     @property 
     def market_value(self):            
-        url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={self.ticker}&apikey=L22HS18QYQG1MIMD'
+        url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={self.ticker}&apikey={env('STOCK_API')}"
         r = requests.get(url)
         data = r.json()
         quote = data['Global Quote']
@@ -54,7 +58,7 @@ class Crypto(models.Model):
 
     @property 
     def market_value(self):       
-        url = f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={self.ticker}&to_currency=USD&apikey=68PZ06O5CMV318YN'
+        url = f"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={self.ticker}&to_currency=USD&apikey={env('CRYPTO_API')}"
         r = requests.get(url)
         data = r.json()
 
