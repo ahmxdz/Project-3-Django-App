@@ -10,11 +10,11 @@
         <div class="card-content">
             <span class="card-title">{{ s.name }}</span>
             <p>Ticker: {{s.ticker}}</p>
-            <p>Purchase Price: {{s.purchase_price}}</p>
+            <p>Purchase Price: ${{s.purchase_price}}</p>
             <p>Purchase Date: {{s.purchase_date}}</p>
             <p># of Units: {{s.num_of_units}}</p>
-            <p>Book Value: {{ s.book_value }}</p>
-            <p>Market Value: {{s.market_value}}</p>
+            <p>Book Value: ${{ s.book_value }}</p>
+            <p>Market Value: ${{s.market_value}}</p>
             <!-- <p>Profit: {{s.profit}}</p> -->
         </div>
     </div>
@@ -28,11 +28,12 @@
         <div class="card-content">
             <span class="card-title">{{ c.name }}</span>
             <p>Ticker: {{ c.ticker }}</p>
-            <p>Purchase Price: {{ c.purchase_price }}</p>
+            <p>Purchase Price: ${{ c.purchase_price }}</p>
             <p>Purchase Date: {{ c.purchase_date }}</p>
             <p># of Units: {{ c.num_of_units }}</p>
-            <p>Book Value: {{ c.book_value }}</p>
-            <p>Market Value: </p>
+            <p>Book Value: ${{ c.book_value }}</p>
+            <p>Market Value: ${{c.market_value}}</p>
+            <!-- <p>Profit: {{c.profit}}</p> -->
         </div>
     </div>
   </a>

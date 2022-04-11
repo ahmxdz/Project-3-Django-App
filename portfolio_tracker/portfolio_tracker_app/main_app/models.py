@@ -2,9 +2,7 @@ from django.db import models
 from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
-import requests
-import json
-import math
+import requests, json, decimal
 
 # Create your models here.
 class Stock(models.Model):
@@ -29,7 +27,7 @@ class Stock(models.Model):
         value_of_price = quote['05. price']
         int_data_value = json.loads(value_of_price)
         mv_unrounded = float(int_data_value) * self.num_of_units
-        return format(mv_unrounded, '.2f')
+        return '{:.2f}'.format(mv_unrounded)
         
     # @property 
     # def profit(self):
@@ -53,7 +51,22 @@ class Crypto(models.Model):
     def book_value(self):
         return self.purchase_price * self.num_of_units
         # add repr to display as 2 digits ? 
-    
+
+    @property 
+    def market_value(self):       
+        url = f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={self.ticker}&to_currency=USD&apikey=68PZ06O5CMV318YN'
+        r = requests.get(url)
+        data = r.json()
+
+        quote = data['Realtime Currency Exchange Rate']
+        value_of_price = quote['5. Exchange Rate']
+        int_data_value = json.loads(value_of_price)
+        mv_unrounded = decimal.Decimal(int_data_value) * self.num_of_units
+        return '{:.2f}'.format(mv_unrounded)
+    # @property 
+    # def profit(self):
+    #     return math(self.market_value) - math(self.book_value)
+
     def get_absolute_url(self):
         return reverse('index', kwargs={'crypto_id': self.id})
     
