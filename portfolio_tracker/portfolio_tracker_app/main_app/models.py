@@ -2,6 +2,9 @@ from django.db import models
 from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
+import requests
+import json
+import math
 
 # Create your models here.
 class Stock(models.Model):
@@ -16,9 +19,26 @@ class Stock(models.Model):
     @property # allows book value to be called similar to other model variables
     def book_value(self):
         return self.purchase_price * self.num_of_units
-    
+
+    @property 
+    def market_value(self):            
+        url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={self.ticker}&apikey=L22HS18QYQG1MIMD'
+        r = requests.get(url)
+        data = r.json()
+        quote = data['Global Quote']
+        value_of_price = quote['05. price']
+        int_data_value = json.loads(value_of_price)
+        mv_unrounded = float(int_data_value) * self.num_of_units
+        return format(mv_unrounded, '.2f')
+        
+    # @property 
+    # def profit(self):
+    #     return math(self.market_value) - math(self.book_value)
+        
     def get_absolute_url(self):
         return reverse('index', kwargs={'stock_id': self.id})
+
+    
 
     
 class Crypto(models.Model):
