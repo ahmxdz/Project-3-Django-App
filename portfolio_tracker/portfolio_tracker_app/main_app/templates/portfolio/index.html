@@ -1,39 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Your Portfolio</h1>
+<h1 class="portfolio-page-title">Your Portfolio</h1>
 <hr/>
-<h2>Stocks</h2>
+<h2 class="stock-header">Stocks</h2>
 {% for s in stocks %}
   <a href="{% url 'stock_detail' s.id %}">
     <div class="card">
         <div class="card-content">
             <span class="card-title">{{ s.name }}</span>
-            <p>Ticker: {{s.ticker}}</p>
-            <p>Purchase Price: ${{s.purchase_price}}</p>
-            <p>Purchase Date: {{s.purchase_date}}</p>
-            <p># of Units: {{s.num_of_units}}</p>
-            <p>Book Value: ${{ s.book_value }}</p>
-            <p>Market Value: ${{s.market_value}}</p>
-            <!-- <p>Profit: {{s.profit}}</p> -->
+            <div class= "card-ticker">{{s.ticker}}</div>
+            <div class= "card-item">Purchase Price: ${{s.purchase_price}}</div>
+            <div class= "card-item">Purchase Date: {{s.purchase_date}}</div>
+            <div class= "card-item"># of Units: {{s.num_of_units}}</div>
+            <div class= "card-item">Book Value: $34,000.98</div>
+            <div class= "card-item">Market Value: $34,000.34</div>
+            <!-- <div class= "card-item">Profit: {{s.profit}}</div> -->
         </div>
     </div>
   </a>
 {% endfor %}
 
-<h2>Crypto</h2>
+<h2 class="crypto-header">Crypto</h2>
 {% for c in crypto %}
   <a href="{% url 'crypto_detail' c.id %}">
     <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ c.name }}</span>
-            <p>Ticker: {{ c.ticker }}</p>
-            <p>Purchase Price: ${{ c.purchase_price }}</p>
-            <p>Purchase Date: {{ c.purchase_date }}</p>
-            <p># of Units: {{ c.num_of_units }}</p>
-            <p>Book Value: ${{ c.book_value }}</p>
-            <p>Market Value: ${{c.market_value}}</p>
-            <!-- <p>Profit: {{c.profit}}</p> -->
+            <span class="card-title">{{c.name }}</span>
+            <div class= "card-ticker">{{ c.ticker }}</div>
+            <div class= "card-item">Purchase Price: ${{c.purchase_price }}</div>
+            <div class= "card-item">Purchase Date: {{c.purchase_date }}</div>
+            <div class= "card-item"># of Units: {{c.num_of_units }}</div>
+            <div class= "card-item">Book Value: $34,000.44</div>
+            <div class= "card-item">Market Value: $34,000.44</div>
+            <!-- <div class= "card-item">Profit: {{c.profit}}</div> -->
         </div>
     </div>
   </a>
