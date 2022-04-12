@@ -5,19 +5,19 @@
 
 <div class="row">
     <div class="col s6">
-      <div class="card">
-        <div class="card-content">
+        <div class="card-details">
+          <ul>
             <span class="card-title">{{ stock.name }}</span>
-            <p>{{stock.ticker}}</p>
-            <p>Purchase Price: {{stock.purchase_price}}</p>
-            <p>Purchase Date: {{stock.purchase_date}}</p>
-            <p># of Units: {{stock.num_of_units}}</p>
-        </div>
-        <div class="card-action">
+            <div>{{stock.ticker}}</div>
+            <div>Purchase Price: {{stock.purchase_price}}</div>
+            <div>Purchase Date: {{stock.purchase_date}}</div>
+            <div># of Units: {{stock.num_of_units}}</div>
+          </div>
+        </ul>
+          <div class="card-action">
           <a href="{% url 'stock_update' stock.id %}">Edit</a>
           <a href="{% url 'stock_delete' stock.id %}">Delete</a>
         </div>
-    </div>
-      </div>
-
+  </div>
+</div>
 {% endblock %}

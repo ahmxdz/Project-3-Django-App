@@ -1,21 +1,27 @@
- body{
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+}
+body{
   background-color: white;
-
 }
  nav{
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #2e2e2e;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #2e2e2e;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
 } 
+
+/* Portfolio Cards */
 .card{
   display: flex;
   justify-content: flex-start;
-  width: 260px;
+  width: 100%;
   border-radius: 10px;
 }
 .card-title{
@@ -28,18 +34,13 @@
 }
 .card-item{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 
 .portfolio-page-title{
   display: flex;
 
-}
-
-.card-action{
-  display: flex;
-  align-items: flex-end;
 }
 .stock-header{
   display: flex;
@@ -48,12 +49,29 @@
 }
 .crypto-header{
   display: flex;
-  
 
 } 
 
-footer{
-  position: relative;
+/* Details Card */
+
+.card-action{
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.card-details{
+  display: flex;
+  width: 100%;
+  border: 5px blue solid;
+  height:300px;
+  font-size: 20px;
+
+}
+
+/* Footer */
+.legal-right{
+  position: absolute;
   bottom: 0;
   left: 88%;
   height: 2.5rem;    

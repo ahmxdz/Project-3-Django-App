@@ -20,22 +20,27 @@ class Stock(models.Model):
     # alternatively to do it directly in the template: https://stackoverflow.com/questions/18350630/multiplication-in-django-template-without-using-manually-created-template-tag
     @property # allows book value to be called similar to other model variables
     def book_value(self):
-        return self.purchase_price * self.num_of_units
+        bv_unrounded = float(self.purchase_price) * self.num_of_units
+        return bv_unrounded
+        # print(type(bv_unrounded))
 
     @property 
     def market_value(self):            
         url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={self.ticker}&apikey={env('STOCK_API')}"
         r = requests.get(url)
         data = r.json()
-        quote = data['Global Quote']
+        quote = data.get('Global Quote')
+        if quote is None:
+           return 0.00
+        
         value_of_price = quote['05. price']
-        int_data_value = json.loads(value_of_price)
-        mv_unrounded = float(int_data_value) * self.num_of_units
+        float_data_value = float(value_of_price)
+        mv_unrounded = float_data_value * self.num_of_units
         return '{:.2f}'.format(mv_unrounded)
         
-    # @property 
-    # def profit(self):
-    #     return math(self.market_value) - math(self.book_value)
+    @property 
+    def profit(self):
+        return self.market_value - self.book_value
         
     def get_absolute_url(self):
         return reverse('index', kwargs={'stock_id': self.id})
@@ -53,7 +58,8 @@ class Crypto(models.Model):
 
     @property # allows book value to be called similar to other model variables
     def book_value(self):
-        return self.purchase_price * self.num_of_units
+        bv_unrounded = self.purchase_price * self.num_of_units
+        return decimal.Decimal(bv_unrounded)
         # add repr to display as 2 digits ? 
 
     @property 
@@ -67,9 +73,10 @@ class Crypto(models.Model):
         int_data_value = json.loads(value_of_price)
         mv_unrounded = decimal.Decimal(int_data_value) * self.num_of_units
         return '{:.2f}'.format(mv_unrounded)
-    # @property 
-    # def profit(self):
-    #     return math(self.market_value) - math(self.book_value)
+
+    @property 
+    def profit(self):
+        return self.market_value - self.book_value
 
     def get_absolute_url(self):
         return reverse('index', kwargs={'crypto_id': self.id})

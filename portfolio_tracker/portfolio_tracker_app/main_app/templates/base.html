@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>G & A Financial Tracker</title>
+    <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-    <header class="navbar-fixed">
+    <header class=>
         <nav>
             <div class="nav-wrapper">
                 <ul>
@@ -22,14 +21,15 @@
                         <!-- changes below -->
                         <div><a href="{% url 'about' %}">About</a></div>
                     {% if user.is_authenticated %}
+                        <div><a href="{% url 'index' %}">Your Portfolio</a></div>
                         <div><a href="{% url 'add_stocks' %}">Add Stocks</a></div>
                         <div><a href="{% url 'add_crypto' %}">Add Crypto</a></div>
-                        <div><a href="{% url 'index' %}">Your Portfolio</a></div>
                         <div><a href="{% url 'logout' %}">Log Out</a></div>
                     {% else %}
                         <div><a href="{% url 'signup' %}">Sign Up</a></div>
                         <div><a href="{% url 'login' %}">Log In</a></div>
                     {% endif %} 
+                        
                   </ul>
             </div>
         </nav>

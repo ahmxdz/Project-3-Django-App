@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load util %}
+
 
 <h1 class="portfolio-page-title">Your Portfolio</h1>
 <hr/>
 <h2 class="stock-header">Stocks</h2>
 {% for s in stocks %}
-  <a href="{% url 'stock_detail' s.id %}">
+  
     <div class="card">
-        <div class="card-content">
+        <div class="card-content">          
             <span class="card-title">{{ s.name }}</span>
             <div class= "card-ticker">{{s.ticker}}</div>
             <div class= "card-item">Purchase Price: ${{s.purchase_price}}</div>
             <div class= "card-item">Purchase Date: {{s.purchase_date}}</div>
             <div class= "card-item"># of Units: {{s.num_of_units}}</div>
-            <div class= "card-item">Book Value: $34,000.98</div>
-            <div class= "card-item">Market Value: $34,000.34</div>
-            <!-- <div class= "card-item">Profit: {{s.profit}}</div> -->
+            <div class= "card-item">Book Value: ${{s.book_value}}</div>
+            <div class= "card-item">Market Value: ${{s.market_value}}</div>
+            <div class= "card-item">Profit: ${{s.market_value|do_subtract:s.book_value}}</div>
+            <a href="{% url 'stock_detail' s.id %}"> DETAILS</a>
         </div>
     </div>
-  </a>
 {% endfor %}
 
 <h2 class="crypto-header">Crypto</h2>
 {% for c in crypto %}
-  <a href="{% url 'crypto_detail' c.id %}">
     <div class="card">
         <div class="card-content">
             <span class="card-title">{{c.name }}</span>
@@ -31,12 +32,12 @@
             <div class= "card-item">Purchase Price: ${{c.purchase_price }}</div>
             <div class= "card-item">Purchase Date: {{c.purchase_date }}</div>
             <div class= "card-item"># of Units: {{c.num_of_units }}</div>
-            <div class= "card-item">Book Value: $34,000.44</div>
-            <div class= "card-item">Market Value: $34,000.44</div>
-            <!-- <div class= "card-item">Profit: {{c.profit}}</div> -->
+            <div class= "card-item">Book Value: ${{c.book_value}}</div>
+            <div class= "card-item">Market Value: ${{s.market_value}}</div>
+            <div class= "card-item">Profit: ${{c.market_value|do_subtract:c.book_value}}</div>
+            <a href="{% url 'stock_detail' c.id %}"> DETAILS</a>
         </div>
     </div>
-  </a>
 {% endfor %}
 
 {% endblock %}
