@@ -1,78 +1,107 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  
 }
-body{
+body {
   background-color: white;
 }
- nav{
+nav {
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 15rem;
   background-color: #2e2e2e;
   position: fixed;
   height: 100%;
   overflow: auto;
-} 
+}
 
+a {
+  color: palevioletred;
+  text-decoration: none;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.left-brand-logo {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin: 20px 10px;
+  font-size: 1.5rem;
+}
+
+.nav-item {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin: 20px 10px;
+}
 /* Portfolio Cards */
-.card{
+.card {
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  border-radius: 10px;
+  border: 1px solid;
+  border-radius: 3px;
 }
-.card-title{
+.card-title {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
-.card-ticker{
+.card-ticker {
   display: flex;
-  
+  font-size: 1.5rem;
+  font-family: "Black Han Sans", sans-serif;
 }
-.card-item{
+.card-item {
   display: flex;
   justify-content: flex-start;
 }
 
-
-.portfolio-page-title{
-  display: flex;
-
+.card-content {
+  padding: 0.5rem;
 }
-.stock-header{
-  display: flex;
-  
 
+.portfolio-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  margin-right: 4rem;
 }
-.crypto-header{
-  display: flex;
 
-} 
+.portfolio-page-title,
+.stock-header,
+.crypto-header {
+  text-align: center;
+  position: relative;
+}
 
 /* Details Card */
 
-.card-action{
+.card-action {
   display: flex;
-  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-
-.card-details{
+.card-details {
   display: flex;
   width: 100%;
   border: 5px blue solid;
-  height:300px;
+  height: 300px;
   font-size: 20px;
-
 }
 
 /* Footer */
-.legal-right{
+.legal-right {
   position: absolute;
   bottom: 0;
   left: 88%;
-  height: 2.5rem;    
+  height: 2.5rem;
 }
