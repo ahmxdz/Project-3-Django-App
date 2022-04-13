@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load util %}
 
 <h1>Crypto Details</h1>
 
 <div class="row">
-    <div class="col s6">
-      <div class="card">
-        <div class="card-details">
-            <span class="card-title">{{ crypto.name }}</span>
-            <div>Ticker: {{crypto.ticker}}</div>
-            <div>Purchase Price: {{crypto.purchase_price}}</div>
-            <div>Purchase Date: {{crypto.purchase_date}}</div>
-            <div># of Units: {{crypto.num_of_units}}</div>
-        
-        <div class="card-action">
-          <a href="{% url 'crypto_update' crypto.id %}">Edit</a>
-          <a href="{% url 'crypto_delete' crypto.id %}">Delete</a>
-        </div>
-        </div>
+  <div class="col s6">
+    <div class="card">
+      <div class="card-content">   
+          <div class= "card-ticker">{{crypto.ticker}}</div>      
+          <span class="card-title">{{ crypto.name }}</span>
+          <div class= "card-item">Purchase Price: ${{crypto.purchase_price}}</div>
+          <div class= "card-item">Purchase Date: {{crypto.purchase_date}}</div>
+          <div class= "card-item"># of Units: {{crypto.num_of_units}}</div>
+          <div class= "card-item">Book Value: ${{crypto.book_value}}</div>
+          <div class= "card-item">Market Value: ${{crypto.market_value}}</div>
+          <div class= "card-item">Profit: ${{crypto.market_value|do_subtract:crypto.book_value}}</div>
+          <div class="card-action">
+            <a href="{% url 'crypto_update' crypto.id %}">Edit</a>
+            <a href="{% url 'crypto_delete' crypto.id %}">Delete</a>
+          </div>
+      </div>
     </div>
   </div>
 </div>
-
 {% endblock %}

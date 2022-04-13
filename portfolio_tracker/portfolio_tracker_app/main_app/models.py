@@ -33,7 +33,7 @@ class Stock(models.Model):
         if quote is None:
            return 0.00
         
-        value_of_price = quote['05. price']
+        value_of_price = quote.get('05. price')
         float_data_value = float(value_of_price)
         mv_unrounded = float_data_value * self.num_of_units
         return '{:.2f}'.format(mv_unrounded)
@@ -72,7 +72,7 @@ class Crypto(models.Model):
         if quote is None:
             return 0.00
 
-        value_of_price = quote['5. Exchange Rate']
+        value_of_price = quote.get('5. Exchange Rate')
         float_data_value = float(value_of_price)
         mv_unrounded = float_data_value * self.num_of_units
         return '{:.2f}'.format(mv_unrounded)
