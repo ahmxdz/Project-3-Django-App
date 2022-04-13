@@ -68,10 +68,13 @@ class Crypto(models.Model):
         r = requests.get(url)
         data = r.json()
 
-        quote = data['Realtime Currency Exchange Rate']
+        quote = data.get('Realtime Currency Exchange Rate')
+        if quote is None:
+            return 0.00
+
         value_of_price = quote['5. Exchange Rate']
-        int_data_value = json.loads(value_of_price)
-        mv_unrounded = decimal.Decimal(int_data_value) * self.num_of_units
+        float_data_value = float(value_of_price)
+        mv_unrounded = float_data_value * self.num_of_units
         return '{:.2f}'.format(mv_unrounded)
 
     @property 
