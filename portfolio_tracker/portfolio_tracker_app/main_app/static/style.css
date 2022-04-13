@@ -74,11 +74,19 @@ a {
   margin-right: 4rem;
 }
 
-.portfolio-page-title,
 .stock-header,
 .crypto-header {
-  text-align: center;
+
   position: relative;
+  padding: 30px;
+  font-size: 3rem;
+  font-family: 'League Spartan', sans-serif;
+}
+.portfolio-page-title{
+position: relative;
+padding: 30px;
+font-size:4rem;
+font-family: 'League Spartan', sans-serif;
 }
 
 /* Details Card */
