@@ -4,8 +4,8 @@
 
 
 <h1 class="portfolio-page-title">Your Portfolio</h1>
-<hr/>
-<h2 class="stock-header">Stocks</h2>
+
+<h2 class="stock-header"> My Stocks</h2>
 
 <div class="portfolio-cards">
   {% for s in stocks %}
@@ -13,15 +13,15 @@
         <div class="card-content">          
             <div class="card-ticker">{{s.ticker}}</div>
             <span class="card-title">{{ s.name }}</span>
-            <div class="card-item">${{s.market_value}}</div>
-            <div class="card-item">Profit: ${{s.market_value|do_subtract:s.book_value}}</div>
+            <div class="card-item">$s.market_value</div>
+            <div class="card-item">Profit: $s.market_value|do_subtract:s.book_value</div>
             <a href="{% url 'stock_detail' s.id %}"> DETAILS</a>
         </div>
     </div>
   {% endfor %}
 </div>
 
-<h2 class="crypto-header">Crypto</h2>
+<h2 class="crypto-header">My Crypto</h2>
 
 <div class="portfolio-cards">
   {% for c in crypto %}
@@ -29,8 +29,8 @@
         <div class="card-content">
             <div class= "card-ticker">{{ c.ticker }}</div>
             <span class="card-title">{{c.name }}</span>
-            <div class= "card-item">Market Value: ${{c.market_value}}</div>
-            <div class= "card-item">Profit: ${{c.market_value|do_subtract:c.book_value}}</div>
+            <div class= "card-item">Market Value: $c.market_value</div>
+            <div class= "card-item">Profit: $c.market_value|do_subtract:c.book_value</div>
             <a href="{% url 'crypto_detail' c.id %}"> DETAILS</a>
         </div>
     </div>

@@ -2,12 +2,12 @@
 {% block content %}
 
 <h1>Log In</h1>
-
-<form method="post" action="{% url 'login' %}">
+<div class= "login-box">
+  <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" class="btn" value="login">
-  <input type="hidden" name="next" value="{{ next }}">
-</form>
-
+      <input placeholder="Username"class="login-submit" type="submit" value="login">
+      <input placeholder="Password" class="feedback-input" type="hidden" name="next" value="{{ next }}">
+  </form>
+</div>
 {% endblock %}
