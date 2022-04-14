@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 body {
+  
   background: rgb(30, 30, 40);
   color: white;
 }
@@ -26,7 +27,7 @@ a {
 
 .main-container {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 2fr 8fr 1fr;
 }
 
 .left-brand-logo {
@@ -106,7 +107,7 @@ a {
   align-content: center;
   flex-direction: row;
   justify-content: center;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   padding-left: 5.5rem;
 }
@@ -220,4 +221,29 @@ button {
 }
 [type="submit"]:hover {
   background: #cc4949;
+}
+
+.line{
+  display: flex;
+  border: 1px solid white;
+  margin: 5px
+}
+
+.about, .home{
+  position: relative;
+  top: 1rem;
+}
+.header{
+  text-align: center;
+  position: relative;
+  padding: 30px;
+  font-size: 4rem;
+  font-family: "Space Mono", monospace;
+}
+
+.para{
+  text-align: center;
+  position: relative;
+  padding: 30px;
+  font-size: 1rem;
 }

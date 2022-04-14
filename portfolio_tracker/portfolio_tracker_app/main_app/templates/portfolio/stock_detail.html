@@ -3,6 +3,9 @@
 {% load util %}
 
 <h1 class="page-title">Stock Details</h1>
+<div class="line"></div>
+<div class="line"></div>
+
 
 <div class="row">
   <div class="card-details">
@@ -19,8 +22,6 @@
   </div>
 </div>
 <div class="card-action">
-  <a></a>
-  <a></a>
   <a class="detail-btn" href="{% url 'stock_update' stock.id %}"><button>Edit</button></a>
   <a class="detail-btn" href="{% url 'stock_delete' stock.id %}"><button>Delete</button></a>
 </div>
