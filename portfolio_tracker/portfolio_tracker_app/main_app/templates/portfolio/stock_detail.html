@@ -2,25 +2,25 @@
 {% block content %}
 {% load util %}
 
-<h1>Stock Details</h1>
+<h1 class="page-title">Stock Details</h1>
 
 <div class="row">
-    <div class="col s6">
-            <div class="card">
-              <div class="card-content">   
-                  <div class= "card-ticker">{{stock.ticker}}</div>      
-                  <span class="card-title">{{ stock.name }}</span>
-                  <div class= "card-item">Purchase Price: ${{stock.purchase_price}}</div>
-                  <div class= "card-item">Purchase Date: {{stock.purchase_date}}</div>
-                  <div class= "card-item"># of Units: {{stock.num_of_units}}</div>
-                  <div class= "card-item">Book Value: ${{stock.book_value}}</div>
-                  <div class= "card-item">Market Value: ${{stock.market_value}}</div>
-                  <div class= "card-item">Profit: ${{stock.market_value|do_subtract:stock.book_value}}</div>
-                  <div class="card-action">
-                    <a href="{% url 'stock_update' stock.id %}">Edit</a>
-                    <a href="{% url 'stock_delete' stock.id %}">Delete</a>
-                  </div>
-              </div>
+  <div class="card-details">
+    <div class="card-content">   
+      <div class= "card-ticker">{{stock.ticker}}</div>      
+      <span class="card-title">{{ stock.name }}</span>
+      <div class= "card-item">Purchase Price: ${{stock.purchase_price}}</div>
+      <div class= "card-item">Purchase Date: {{stock.purchase_date}}</div>
+      <div class= "card-item"># of Units: {{stock.num_of_units}}</div>
+      <div class= "card-item">Book Value: ${{stock.book_value}}</div>
+      <div class= "card-item">Market Value: ${{stock.market_value}}</div>
+      <div class= "card-item">Profit: ${{stock.market_value|do_subtract:stock.book_value}}</div>
+    </div>
   </div>
 </div>
+<div class="card-action">
+  <a class="detail-btn" href="{% url 'stock_update' stock.id %}"><button>Edit</button></a>
+  <a class="detail-btn" href="{% url 'stock_delete' stock.id %}"><button>Delete</button></a>
+</div>
+
 {% endblock %}
