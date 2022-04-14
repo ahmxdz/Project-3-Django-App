@@ -101,12 +101,14 @@ a {
 }
 
 .card-action {
-  display: flex;
-  align-items: flex-end;
+  display: grid;
   margin: 2rem 30rem 0rem 30rem;
   align-content: center;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  padding-left: 20px;
 }
 
 .card-details {
@@ -187,7 +189,7 @@ button:hover,
 
 button {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  width: 80%;
+  width: 8rem;
   background: #cc6666;
   border-radius: 5px;
   border: 0;
