@@ -30,6 +30,7 @@ class Stock(models.Model):
         r = requests.get(url)
         data = r.json()
         quote = data.get('Global Quote')
+
         if quote is None:
            return 0.00
         
@@ -74,7 +75,9 @@ class Crypto(models.Model):
 
         value_of_price = quote.get('5. Exchange Rate')
         float_data_value = float(value_of_price)
+        print(type(float_data_value))
         mv_unrounded = float_data_value * self.num_of_units
+        print(type(self.num_of_units))
         return '{:.2f}'.format(mv_unrounded)
 
     @property 
