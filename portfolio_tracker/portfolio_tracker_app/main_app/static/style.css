@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 body {
-  
   background: rgb(30, 30, 40);
   color: white;
 }
@@ -20,14 +19,24 @@ nav {
   overflow: auto;
 }
 
+main {
+  margin-left: 15rem;
+  width: 87%;
+}
+
 a {
   color: red;
   text-decoration: none;
 }
 
-.main-container {
-  display: grid;
-  grid-template-columns: 2fr 8fr 1fr;
+form {
+  display: flex;
+  margin: 5rem 15rem;
+  align-items: stretch;
+}
+
+table {
+  width: 100%;
 }
 
 .left-brand-logo {
@@ -36,6 +45,10 @@ a {
   text-decoration: none;
   margin: 20px 10px;
   font-size: 1.5rem;
+}
+
+.main-container {
+  width: 96%;
 }
 
 .nav-item {
@@ -75,13 +88,14 @@ a {
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  margin-right: 4rem;
+  margin-left: 2rem;
+  width: 80%;
 }
 
 .stock-header,
 .crypto-header {
   position: relative;
-  padding: 30px;
+  padding: 2rem 3rem;
   font-size: 3rem;
   font-family: "Space Mono", monospace;
 }
@@ -99,17 +113,17 @@ a {
 .row {
   display: grid;
   justify-items: center;
+  margin-top: 2rem;
 }
 
 .card-action {
   display: grid;
-  margin: 2rem 30rem 0rem 30rem;
+  margin: 4rem 10rem 0rem 10rem;
   align-content: center;
   flex-direction: row;
   justify-content: center;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  padding-left: 5.5rem;
 }
 
 .card-details {
@@ -151,7 +165,6 @@ input {
   border: 2px solid #cc6666;
   transition: all 0.3s;
   padding: 13px;
-  margin-bottom: 15px;
   width: 100%;
   box-sizing: border-box;
   outline: 0;
@@ -179,7 +192,6 @@ textarea {
   padding-top: 10px;
   padding-bottom: 10px;
   transition: all 0.3s;
-  margin-top: -4px;
   font-weight: 700;
 }
 [type="submit"]:hover,
@@ -223,17 +235,18 @@ button {
   background: #cc4949;
 }
 
-.line{
+.line {
   display: flex;
   border: 1px solid white;
-  margin: 5px
+  margin: 2rem;
 }
 
-.about, .home{
+.about,
+.home {
   position: relative;
   top: 1rem;
 }
-.header{
+.header {
   text-align: center;
   position: relative;
   padding: 30px;
@@ -241,7 +254,7 @@ button {
   font-family: "Space Mono", monospace;
 }
 
-.para{
+.para {
   text-align: center;
   position: relative;
   padding: 30px;
