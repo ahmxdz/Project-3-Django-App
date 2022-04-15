@@ -6,9 +6,11 @@
 <div class= "login-box">
   <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
-  {{ form.as_p }}
-      <input placeholder="Username"class="login-submit" type="submit" value="login">
-      <input placeholder="Password" class="feedback-input" type="hidden" name="next" value="{{ next }}">
+  <table>
+  {{ form.as_table }}
+  </table>
+      <input class="login-btn" type="submit" value="login">
+      <input type="hidden" name="next" value="{{ next }}">
   </form>
 </div>
 {% endblock %}
