@@ -32,7 +32,7 @@ Not Signed In Page:
 ### App Screenshots:
 
 Home Page:
-<img src="/Users/ahmedali/Project-3-Django-App/portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-16 at 09.59.04.png">
+<img src="Project-3-Django-App/portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-16 at 09.59.04.png">
 
 Portfolio Page:
 <img src="/Users/ahmedali/Project-3-Django-App/portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-16 at 09.59.39.png">
