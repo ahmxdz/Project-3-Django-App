@@ -31,8 +31,21 @@ Not Signed In Page:
 
 ### App Screenshots:
 
+Home Page:
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-16 at 09.59.04.png">
+
+Portfolio Page:
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-16 at 09.59.39.png">
+
+Add Stock:
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-16 at 09.59.57.png">
+
+Add Crypto:
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-16 at 10.00.07.png">
+
 ### ERD:
 
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-16 at 10.14.36.png">
 ### Getting Started:
 Link to the deployed app is here: <a href="http://localhost:8000/"> G & A Financial Portfolio Planner</a>
 
@@ -41,9 +54,8 @@ Link to the Trello Board is here: <a href="https://trello.com/b/ZCYrVCrV/project
 ### Next Steps:
 <li> Implement Linking Banks</li>
 <li> Implement a way to add new purchased stock to an existing portfolio</li>
-<li> </li>
-<li> </li>
-<li> </li>
-<li> </li>
-<li> </li>
-<li> </li> 
+<li> AAU I want to be able to sign in with my Google Account</li>
+<li> AAU I want to add a custom purchase price for my stock.crypto (not the current market price) e.g. in form</li>
+<li> AAU I want to convert to my domiciled currency</li>
+<li> AAU I want to add crypto/stock portfolio photos API for a nice UI design</li>
+<li> Live search stock/ crypto tickers</li>
