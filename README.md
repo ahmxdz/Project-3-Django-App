@@ -15,19 +15,19 @@
 
 ### Wire Frame:
 Main Page:
-<img src="portfolio_tracker/portfolio_tracker_app/main_app/images/Screen Shot 2022-04-06 at 23.53.03.png">
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-06 at 23.53.03.png">
 
 Add Stocks and Crypto:
-<img src="portfolio_tracker/portfolio_tracker_app/main_app/images/Screen Shot 2022-04-06 at 23.53.46.png">
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-06 at 23.53.46.png">
 
 Details:
-<img src="portfolio_tracker/portfolio_tracker_app/main_app/images/Screen Shot 2022-04-06 at 23.53.14.png">
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-06 at 23.53.14.png">
 
 About Us:
-<img src="portfolio_tracker/portfolio_tracker_app/main_app/images/Screen Shot 2022-04-06 at 23.53.28.png">
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-06 at 23.53.28.png">
 
 Not Signed In Page:
-<img src="portfolio_tracker/portfolio_tracker_app/main_app/images/Screen Shot 2022-04-06 at 23.53.57.png">
+<img src="portfolio_tracker/portfolio_tracker_app/main_app/static/images/Screen Shot 2022-04-06 at 23.53.57.png">
 
 ### App Screenshots:
 
