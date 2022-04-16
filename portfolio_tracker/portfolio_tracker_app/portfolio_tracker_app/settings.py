@@ -13,9 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import environ
-import django_heroku
 
-django_heroku.settings(locals())
 
 # Initialise environment variables
 env = environ.Env()
@@ -90,7 +88,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '5435'
     }
 }
 
@@ -148,3 +146,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+import django_heroku
+
+django_heroku.settings(locals())
